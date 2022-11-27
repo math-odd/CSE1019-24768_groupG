@@ -22,7 +22,7 @@ public class OneCardGame implements OneCardGameInterface{
 		return null;
 	}
 	
-	public Card[] possible() {
+	public Card[] playerCards() {
 		return null;
 	}
 	
