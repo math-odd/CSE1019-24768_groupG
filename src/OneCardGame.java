@@ -2,11 +2,14 @@
 public class OneCardGame implements OneCardGameInterface{
 	Dealer dealer;
 	HumanPlayer hand_player;
-	ComputerPlayer hand_dealer;
+	ComputerPlayer hand_com1;
+	ComputerPlayer hand_com2;
+	ComputerPlayer hand_com3;
+	
 	@Override
-	public String turn() {
+	public boolean isPlayerTurn() {
 		// TODO Auto-generated method stub
-		return null;
+		return true;
 	}
 	@Override
 	public void putCard(String suit, int rank) {
@@ -19,5 +22,12 @@ public class OneCardGame implements OneCardGameInterface{
 		return null;
 	}
 	
+	public Card[] possible() {
+		return null;
+	}
+	
+	public int[] numberOfCards() {
+		return null;
+	}
 	
 }
