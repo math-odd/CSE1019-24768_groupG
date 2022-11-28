@@ -1,6 +1,6 @@
 
 public class CardDeck {
 	
-	Card[] deck;
+	private Card[] deck;
 	
 }

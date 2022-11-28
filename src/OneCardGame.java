@@ -1,33 +1,36 @@
 
 public class OneCardGame implements OneCardGameInterface{
 	Dealer dealer;
-	HumanPlayer hand_player;
+	HumanPlayer hand_player = new HumanPlayer();
 	ComputerPlayer hand_com1;
 	ComputerPlayer hand_com2;
 	ComputerPlayer hand_com3;
 	
-	@Override
 	public boolean isPlayerTurn() {
-		// TODO Auto-generated method stub
 		return true;
 	}
-	@Override
-	public void putCard(String suit, int rank) {
-		// TODO Auto-generated method stub
+
+	public boolean putCard(String suit, int rank) {
 		
+		return true;
 	}
-	@Override
+	
 	public Card topCard() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	public Card[] playerCards() {
-		return null;
+		//test 용도, 지워도 됌
+		Card[] hand2 = {new Card("diamonds", 1), new Card("diamonds", 3), 
+				new Card("hearts", 5)};
+		return hand2;
+		//return hand_player.hand();
 	}
 	
 	public int[] numberOfCards() {
-		return null;
+		//test 용도 
+		int[] comCards = {4, 8, 10};
+		return comCards;
 	}
 	
 }

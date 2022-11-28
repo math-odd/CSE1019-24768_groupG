@@ -1,5 +1,6 @@
 
 public class CardPlayer implements CardPlayerBehavior{
+	private Card[] hand;
 
 	@Override
 	public boolean receiveCard(Card c) {
@@ -7,4 +8,7 @@ public class CardPlayer implements CardPlayerBehavior{
 		return false;
 	}
 
+	public Card[] hand() {
+		return null;
+	}
 }
