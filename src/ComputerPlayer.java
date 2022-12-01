@@ -2,9 +2,9 @@ public class ComputerPlayer extends CardPlayer{
 		
 	public int computer_id; //컴퓨터 플레이어의 수? 
 		
-	public ComputerPlayer(int max_cards, int id) {
-		super(max_cards);
-		computer_count = id;
+	public ComputerPlayer(Dealer d,int max_cards, int id) {
+		super(d, max_cards);
+		computer_id = id;
 	}
 	
 	
