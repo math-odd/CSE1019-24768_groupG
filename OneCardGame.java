@@ -8,8 +8,13 @@ public class OneCardGame implements OneCardGameInterface{
 	CardPlayer[] turn;
 	int max_cards = 16;
 	int nowTurn = 0;
+	int cases; // 0 := 게임중 // 1 := player 승리 // 2 := player패배
+	int stackedAttack; // 공격카드 겹쳐진 경우 얼마나 먹어야하는지.
 	String name;
-
+	Card topper;//맨 마지막으로 낸 카드
+	Card throwedCard;// putCard로 받는 카드
+	boolean attack;
+/////////////////////!!!!!!!!!!!!!!!           7하고 J, Q, K 어떻게 하지?
 	public OneCardGame(Dealer d) {
 		dealer = d;
 		name = JOptionPane.showInputDialog("What is your name?");
@@ -22,12 +27,14 @@ public class OneCardGame implements OneCardGameInterface{
 		turn[2] = hand_com2;
 		turn[3] = hand_com3;
 	}
-	
-	
-////////////////////////////////////////player가 게임을 이겼는지 졌는지 알만한 무언가 하나 더 필요함
+
 	public void StartGame() {
 		startCard();
+		cases = 0;
+		stackedAttack = 0;
+		attack = false;
 		while(true) {
+			topper = dealer.topCard();
 			if(isPlayerTurn()) {
 				PlayerPlay();
 			}
@@ -35,13 +42,15 @@ public class OneCardGame implements OneCardGameInterface{
 				ComPlay(turn[nowTurn]);
 			}
 			nowTurn += 1;
-			if (nowTurn > 3) {nowTurn -= 4;}
-			if (진 경우) {
+			int PlayerNumber = turn.length;
+			if (nowTurn >= PlayerNumber) {nowTurn -= PlayerNumber;}
+			if (turn.length == 1) {cases = 1;}
+			if (cases == 2) {
 				JOptionPane.showInternalMessageDialog(null, "졌습니다. 현재 보유한 칩은 " +
 						hand_player.chips() + "개 입니다.");
 				break;
 			}
-			else if (이긴 경우) {
+			else if (cases == 1) {
 				JOptionPane.showInternalMessageDialog(null, "이겼습니다. 현재 보유한 칩은 " +
 						hand_player.chips() + "개 입니다.");
 				break;
@@ -58,49 +67,98 @@ public class OneCardGame implements OneCardGameInterface{
 	}
 	
 	public void PlayerPlay() {
-		if (hand_player.possible(null)) {
-			boolean beforput = true;
-			while (beforput) {
-				//카드 정한 것 받기
-				if (hand_player.possible_cards(null)) {// 그 카드가 가능한지 보여줘야하는데...
-					dealer.putCard(null);
-					beforput = false;
+		if (hand_player.possible(topper)) {
+			while (true) {
+				WaitForPut();
+				if (possibleTOput()) {
+					dealer.putCard(throwedCard);
+					throwedCard = null;
+					break;
 				}
 				else
 					continue;
 			}					
 		}
 		else {
-			if (공격아님)
-				dealer.dealWantTo(hand_player);
-			else
-				dealer.dealTo(hand_player, 먹어야 하는 만큼);
-		
-		int playerhand = hand_player.hand().length;
-		if (length > 16) {hand_player.loose;}
-		else if (length == 0) {hand_player.win;}
+			int playerhand = hand_player.hand().length;
+			if (!attack)
+				if(playerhand <= 15) {
+					dealer.dealWantTo(hand_player);
+				}
+				else{
+					cases = 2;
+					hand_player.loose();
+				}
+			else {		
+				if (playerhand + stackedAttack <= 16) {
+					dealer.dealTo(hand_player, stackedAttack);
+					stackedAttack = 0;
+					attack = false;
+				}
+				else {
+					cases = 2;
+					hand_player.loose();
+				}
+			}
+		}
+		if (hand_player.hand().length == 0) {
+			cases = 1;
+			hand_player.win();
 		}
 	}
-	
-	//지금까지 얼마나 먹어야하는지 알 방법이 필요한데...
+
+	public void WaitForPut() {
+		while(throwedCard == null)
+			continue;
+	}
+
+	public boolean possibleTOput(){
+		if (throwedCard.suit() == topper.suit()){return true;}
+		else if (throwedCard.rank() == topper.rank()){return true;}
+		else if (throwedCard.suit() == "blackjoker" || throwedCard.suit() == "colorjoker") {return true;}
+		else {return false;}
+	}
+	//지금까지 얼마나 먹어야하는지 알 방법이 필요한데... => putcard 쓰기.
 	/////////////////////////////////////////밑에거 보니까 Card[]만들때 +1을 해주던, 그보다 -1이 최대여야함.
+	/////////////////////////////////////////////아니고 hand[]랑 먹어야 할 카드의 개수가 16이 넘으면 죽음.
 	public void ComPlay(CardPlayer cp) {
-		Card[] thishand = cp.hand();
-		//근데 왜 죄다 Card put을 받는거지?
-		if (cp.possible(null)) {
-			//com은 랜덤으로 낸다는데 그런 함수는 하나도 없네. 일단 랜덤으로 낸다 치자.
-			if (cp.hand().length == 0) {hand_player.loose();}
+		boolean die = false;
+		//근데 왜 죄다 Card put을 받는거지? => 지금 나와있는 카드랑 비교하려고
+		if (cp.possible(topper)) {
+			//com은 랜덤으로 낸다는데 그런 함수는 하나도 없네. 일단 랜덤으로 낸다 치자. => 찾음
+			Card[] arr = cp.possible_cards(topper);
+			int idx = (int)(Math.random()* arr.length);
+			cp.receivedCard(arr[idx]);
 		}
-		else if(공격아님){dealer.dealWantTo(cp);}
-		else {dealer.dealTo(cp, 먹어야 하는 카드개수);}
-		if (cp.cardCount() >= max_cards) {
+		else {
+			int handLangth = cp.hand().length;
+			if(!attack){
+				if (handLangth <= 15){dealer.dealWantTo(cp);}
+				else{die = true;}
+			}
+			else {
+				if (handLangth + stackedAttack <= 16) {
+				dealer.dealTo(cp, stackedAttack);
+				stackedAttack = 0;attack = false;
+				}
+				else{die = true;stackedAttack = 0;attack = false;}
+			}
+		}
+		if (die) {
 			turn[nowTurn] = null;
 			for (int nt = nowTurn; nt < turn.length - 1; nt++) {
 				turn[nt] = turn[nt + 1];
+				nowTurn -= 1;
 			}
+		}
+		if (cp.hand().length == 0) {
+			hand_player.loose();
+			cases = 2;
 		}
 	}
 	
+
+
 	@Override
 	public boolean isPlayerTurn() {
 		if (nowTurn == 0)
@@ -108,10 +166,16 @@ public class OneCardGame implements OneCardGameInterface{
 		else
 			return false;
 	}
-	@Override
+	@Override // player가 낸 카드를 알려줌
 	public void putCard(String suit, int rank) {
 		Card c = new Card(suit, rank);
-		dealer.putCard(c);
+		if (rank == 0) {
+			if (suit == "blackjoker"){stackedAttack += 5; attack = true;}
+			else {stackedAttack += 10; attack = true;} //(suit == "colorjoker") 
+		}
+		else if(rank == 1){stackedAttack += 3; attack = true;}
+		else if(rank == 2){stackedAttack += 2; attack = true;}
+		throwedCard = c;
 	}
 	@Override
 	public Card topCard() {
@@ -124,6 +188,7 @@ public class OneCardGame implements OneCardGameInterface{
 	}
 	
 	public int[] numberOfCards() {
+		////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 얘 hand_com들이 죽으면 어떻게 해? 여기 좀 생각해봐야할듯
 		int handArr[] = new int[3];
 		handArr[0] = hand_com1.hand().length;
 		handArr[1] = hand_com2.hand().length;

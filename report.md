@@ -21,7 +21,7 @@
 
 **예상도**
 
-![Untitled](report/Untitled.png)
+![Untitled](report\Untitled.png)
 
 **프로젝트 대시보드**
 
