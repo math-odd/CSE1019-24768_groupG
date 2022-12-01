@@ -1,4 +1,4 @@
-public class CardPlayer implements Dealer {
+public class CardPlayer {
 
     private Card[] hand;
     private int card_count;
