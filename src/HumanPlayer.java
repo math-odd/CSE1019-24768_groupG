@@ -3,8 +3,8 @@ public abstract class HumanPlayer extends CardPlayer{
 private String name;
 private int chips;
 
-	public HumanPlayer(int max_cards, String n) {
-		super(max_cards);
+	public HumanPlayer(Dealer d,int max_cards, String n) {
+		super(d, max_cards);
 		n = name;
 	}
 	public void win() {
@@ -14,7 +14,7 @@ private int chips;
 		chips = chips - 1;
 	}
 	public int chips() {
-		return chips;1
+		return chips;
 	}
 	public Card[] hand() {
 		return super.hand();
@@ -31,4 +31,4 @@ private int chips;
 	public Card[] choice_card(Card[] possible_cards, Card put) {
 		return super.possible_cards(put);
 	}
-}
+}		
