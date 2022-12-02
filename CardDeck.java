@@ -1,6 +1,8 @@
 
 public class CardDeck {
 	
-	Card[] deck;
+	int card_count;
+	Card[] deck; 
 	
+
 }

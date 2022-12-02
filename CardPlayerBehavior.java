@@ -1,4 +1,9 @@
 
 public interface CardPlayerBehavior {
-	boolean receiveCard(Card c);
+	
+	public void receivedCard(Card c);
+	
+	//public boolean wantACard();
+	
+
 }

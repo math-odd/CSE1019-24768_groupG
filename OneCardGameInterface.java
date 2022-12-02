@@ -8,6 +8,7 @@ public interface OneCardGameInterface {
 	
 	/*
 	 * put player's card (suit, rank) onto thrown deck
+	 * returns if successful
 	 */
 	public void putCard(String suit, int rank);
 	
