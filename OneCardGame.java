@@ -12,7 +12,7 @@ public class OneCardGame implements OneCardGameInterface{
 	int cases; // 0 := 게임중 // 1 := player 승리 // 2 := player패배
 	int stackedAttack; // 공격카드 겹쳐진 경우 얼마나 먹어야하는지.
 	
-	int direction=1; //턴의 순서 
+	int direction; //턴의 순서 
 	int total_players;
 
 	
@@ -48,7 +48,7 @@ public class OneCardGame implements OneCardGameInterface{
 		
 		//랜덤으로 첫 순서 뽑기
 		//nowTurn = (int)(Math.random() * (total_players-1));
-
+		direction=1;
 		startCard();
 		cases = 0;
 		stackedAttack = 0;
@@ -67,19 +67,17 @@ public class OneCardGame implements OneCardGameInterface{
 			//nowTurn += 1;
 			nowTurn = (nowTurn+direction) % (total_players);
 			
-			
-			
-			int PlayerNumber = turn.length;
-			if (nowTurn >= PlayerNumber) {nowTurn -= PlayerNumber;}
-			if (turn.length == 1) {cases = 1;}
+			if (total_players == 1) {cases = 1;}
 			if (cases == 2) {
 				JOptionPane.showInternalMessageDialog(null, "졌습니다. 현재 보유한 칩은 " +
 						hand_player.chips() + "개 입니다.");
+				nowTurn = (int)(Math.random() * 4 + 1 - 1) + 1;
 				break;
 			}
 			else if (cases == 1) {
 				JOptionPane.showInternalMessageDialog(null, "이겼습니다. 현재 보유한 칩은 " +
 						hand_player.chips() + "개 입니다.");
+				nowTurn = 0;
 				break;
 			}
 		}
