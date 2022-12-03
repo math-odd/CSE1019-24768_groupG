@@ -4,11 +4,7 @@ public class CardPlayer {
     private int card_count;
     public int idx = 0;
     Dealer dealer; 
-    
-    private Card[] possible;
-    private int possible_count;
-    
-    
+        
     public CardPlayer(Dealer d,int max_cards) {
         hand = new Card[max_cards];
         card_count = 0;
@@ -35,71 +31,69 @@ public class CardPlayer {
     //!!//공격카드는 어떻게 하고, 공격이 끝난 다음은 어떻게 할 것인가? 7일때는?
 
     public Card[] possible_cards(Card put) {
-    //!!!!!!///// 7일때 모튼 카드를 내는 것이 가능한것으로 바꿨다!!!
-        possible = new Card[card_count]; 
-        possible_count = 0;
+    //!!!!!!///// 7일때 모든 카드를 내는 것이 가능한것으로 바꿨다!!!
+        Card[] cards = new Card[card_count]; 
+        int cc = 0;
         if(put.rank() != 7){
             for(int i=0; i<card_count; i++) {
                 if(hand[i].rank() == put.rank() || hand[i].suit() == put.suit() || hand[i].rank() == 0)
-                {	possible[possible_count] = hand[i];
-                    possible_count++;
+                {	cards[cc] = hand[i];
+                    cc++;
                 }
             }
         }
         else{
-            possible = hand;
-            possible_count = card_count;
+            cards = hand;
+            cc = card_count;
         }
         
-        return possible;
+        return cards;
     }
     
-    public boolean possible(Card put) {
-    	this.possible_cards(put);
-    	
-    	if(possible_count > 0)  
-			return true;
-		else
-			return false;
-    }
 /////////#############여기부터 추가부분############//////////
 /////////////////공격카드일때만 쓰는 possible.
     public Card[] possible_attack_cards(Card put) {
-        possible = new Card[card_count]; 
-        possible_count = 0;
+        Card[] cards = new Card[card_count]; 
+        int cc = 0;
         if (put.rank() == 2){
             for(int i=0; i<card_count; i++) {
                 if(hand[i].rank() == 0 || hand[i].rank() ==  1 
                     || hand[i].rank() == 2){
-                    possible[possible_count] = hand[i];
-                    possible_count++;
+                    cards[cc] = hand[i];
+                    cc++;
                 }
             }
         }
         else if (put.rank() == 1){
             for(int i=0; i<card_count; i++) {
                 if(hand[i].rank() == 0 || hand[i].rank() == 1){
-                    possible[possible_count] = hand[i];
-                    possible_count++;
+                    cards[cc] = hand[i];
+                    cc++;
                 }
             }
         }
         else{ //put.rank() == 0
             for(int i=0; i<card_count; i++) {
                 if(hand[i].rank() == 0){
-                    possible[possible_count] = hand[i];
-                    possible_count++;
+                    cards[cc] = hand[i];
+                    cc++;
                 }
             }
         }
 
-        return possible;
+        return cards;
     }
 
-    public boolean possible_attack(Card put) {
+    public boolean possible(Card put) {
+		if(possible_cards(put).length > 0)
+			return true;
+		else
+			return false;
+	}
+	public boolean possible_attack(Card put) {
     	this.possible_attack_cards(put);
     	
-    	if(possible_count > 0)  
+    	if(possible_attack_cards(put).length > 0)  
 			return true;
 		else
 			return false;
