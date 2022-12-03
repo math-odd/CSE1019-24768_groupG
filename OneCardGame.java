@@ -21,8 +21,9 @@ public class OneCardGame implements OneCardGameInterface{
 	Card throwedCard;// putCard로 받는 카드
 	boolean attack;
 	
-/////////////////////!!!!!!!!!!!!!!! 게임 끝나면 덱과 손패 정리해야함.
-/////////////////////!!!!!!!!!!!!!!! 7 어떻게 할까?
+////////////////!!!!!!!!!!!!!!! 게임 끝나면 덱과 손패 정리해야함.
+//////////!!!!!!!!! 7 어떻게 할까? =>> possible_cards에서 맡자.
+
 	
 	
 	//complete
@@ -95,41 +96,64 @@ public class OneCardGame implements OneCardGameInterface{
 	
 	//progress
 	public void PlayerPlay() {
-		if (hand_player.possible(topper)) {
-			while (true) {
-				WaitForPut();
-				if (possibleTOput()) {
-					hand_player.putCard(throwedCard);
-					dealer.putCard(throwedCard);
+		if(!attack){
+			if (hand_player.possible(topper)) {
+				while (true) {
+					WaitForPut();
+					if (possibleTOput()) {
+						hand_player.putCard(throwedCard);
+						dealer.putCard(throwedCard);
+						throwedCard = null;
+						break;
+					}
+					else
 					throwedCard = null;
-					break;
+						continue;
 				}
-				else
-				throwedCard = null;
-					continue;
+				int nowHand = hand_player.cardCount();
+				if (nowHand == 1) {
+					System.out.println("OneCard!");
+				}
+				else if (nowHand == 0) {
+					cases = 1;
+					hand_player.win();
+				}
 			}
-			int nowHand = hand_player.cardCount();
-			if (nowHand == 1) {
-				System.out.println("OneCard!");
-			}
-			else if (nowHand == 0) {
-				cases = 1;
-				hand_player.win();
-			}				
-		}
-		else {
-			int playerhand = hand_player.cardCount();
-			if (!attack)
-				if(playerhand <= 15) {
+			else{
+				if(hand_player.cardCount() <= 15) {
 					dealer.dealTo(hand_player, 1);
 				}
 				else{
 					cases = 2;
 					hand_player.loose();
 				}
-
+			}
+		}
+		else {
+			if (hand_player.possible_attack(topper)) {
+				while (true) {
+					WaitForPut();
+					if (possibleTOattack()) {
+						hand_player.putCard(throwedCard);
+						dealer.putCard(throwedCard);
+						throwedCard = null;
+						break;
+					}
+					else
+					throwedCard = null;
+						continue;
+				}
+				int nowHand = hand_player.cardCount();
+				if (nowHand == 1) {
+					System.out.println("OneCard!");
+				}
+				else if (nowHand == 0) {
+					cases = 1;
+					hand_player.win();
+				}
+			}
 			else {
-				if (playerhand + stackedAttack <= 16) {
+				if (hand_player.cardCount() + stackedAttack <= 16) {
 					dealer.dealTo(hand_player, stackedAttack);
 					stackedAttack = 0;
 					attack = false;
@@ -153,7 +177,20 @@ public class OneCardGame implements OneCardGameInterface{
 	public boolean possibleTOput(){
 		if (throwedCard.suit() == topper.suit()){return true;}
 		else if (throwedCard.rank() == topper.rank()){return true;}
-		else if (throwedCard.suit() == "blackjoker" || throwedCard.suit() == "colorjoker") {return true;}
+		else if (topper.rank() == 0
+			|| topper.rank() == 7) {return true;}
+		else {return false;}
+	}
+	public boolean possibleTOattack(){
+		if (topper.rank() == 2 
+			&&(throwedCard.rank() == 0
+			|| throwedCard.rank() == 1
+			|| throwedCard.rank() == 2)){return true;}
+		else if (topper.rank() == 1
+			&&(throwedCard.rank() == 0
+			|| throwedCard.rank() == 1)){return true;}
+		else if (topper.rank() == 0
+			&& throwedCard.rank() == 0){return true;}
 		else {return false;}
 	}
 	
@@ -167,50 +204,66 @@ public class OneCardGame implements OneCardGameInterface{
 	public void ComPlay(CardPlayer cp) {
 		boolean die = false;
 		
-		
-		
 		//카드를 먹는 순간 die를 결정하기 때문에 그 외의 순간에서 카드의 수를 고려하지 않는다. 
-		
-		if (cp.possible(topper)) {//낼 수 있는 카드가 존재하면 그 중에서 (규칙에 맞게) 카드를 낸다 
-			//카드를 냈음 
-			((ComputerPlayer)cp).takeCard(topper);
-			//takeCard가,즉, 내서 놓인덱의 제일 위에 있는 카드가 attack이라면 attack = true;
-			Card take = dealer.topCard();
-		
-			//내가 놓은 카드가 attack 카드인 경우 
-			if (take.rank() == 0 || take.rank() == 1 || take.rank() ==2) {
-				attack = true;  
-				if (take.rank() == 0)  
-					stackedAttack+=5;
-				else if (take.rank() == 1)
-					stackedAttack+= 3;
-				else if (take.rank() == 2)
-					stackedAttack +=2;
-			}
+		if (!attack){
+			if (cp.possible(topper)) {//낼 수 있는 카드가 존재하면 그 중에서 (규칙에 맞게) 카드를 낸다 
+				//카드를 냈음 
+				((ComputerPlayer)cp).takeCard(topper, attack);
+				//takeCard가,즉, 내서 놓인덱의 제일 위에 있는 카드가 attack이라면 attack = true;
+				Card take = dealer.topCard();
+			
+				//내가 놓은 카드가 attack 카드인 경우 
+				if (take.rank() == 0 || take.rank() == 1 || take.rank() ==2) {
+					attack = true;  
+					if (take.rank() == 0)  
+						stackedAttack+=5;
+					else if (take.rank() == 1)
+						stackedAttack+= 3;
+					else if (take.rank() == 2)
+						stackedAttack +=2;
+				}
 
-			//내가 놓 카드가 특 카드인 경우  j=11,q=12,k=13
-			if (take.rank() == 11)
-				//n = ( ( n+1) + direction) % (total_players);
-				nowTurn +=1;
-			else if (take.rank() == 12) {
-				direction = -1; //directiom *= -1어때? -1이면 다시 1이 되어야 하니까?
+				//내가 놓 카드가 특 카드인 경우  j=11,q=12,k=13
+				if (take.rank() == 11)
+					//n = ( ( n+1) + direction) % (total_players);
+					nowTurn +=1;
+				else if (take.rank() == 12) {
+					direction *= -1; //directiom *= -1어때? -1이면 다시 1이 되어야 하니까?
+				}
+				else if (take.rank() == 13) {
+					ComPlay(cp); 
+				}	
+				
+				/***/
+				if(cp.cardCount() == 1)  
+					System.out.println("OneCard!!!");
+				
 			}
-			else if (take.rank() == 13) {
-				ComPlay(cp); 
-			}	
-			
-			/***/
-			if(cp.cardCount() == 1)  
-				System.out.println("OneCard!!!");
-			
-		}
-		else {//낼 수 있는 카드가 없다면 카드를 먹는다
-			if(!attack){ //놓인 카드가 공격카드가 아닌 경우. 즉 1장만을 먹어야하는 경우 
+			else {//낼 수 있는 카드가 없다면 카드를 먹는다
+				//놓인 카드가 공격카드가 아닌 경우. 즉 1장만을 먹어야하는 경우 
 				if (cp.cardCount() < 16) {dealer.dealTo(cp,1);}
 				else {
 					dealer.dealTo(cp,1); 
 					die = true;
 					total_players -=1;
+				}
+			}
+		}
+		else{
+			if (cp.possible_attack(topper)){
+				((ComputerPlayer)cp).takeCard(topper, attack);
+				//takeCard가,즉, 내서 놓인덱의 제일 위에 있는 카드가 attack이라면 attack = true;
+				Card take = dealer.topCard();
+			
+				//내가 놓은 카드인 attack 카드
+				if (take.rank() == 0 || take.rank() == 1 || take.rank() ==2) {
+					attack = true; 
+					if (take.rank() == 0)  
+						stackedAttack+=5;
+					else if (take.rank() == 1)
+						stackedAttack+= 3;
+					else if (take.rank() == 2)
+						stackedAttack +=2;
 				}
 			}
 			else {//카드를 먹어야하는 상황일 때 놓여 카드가 공격카드인 경우 
