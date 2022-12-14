@@ -38,9 +38,9 @@ public class LoginPanel extends JPanel implements ActionListener{
 		card_height = card_back.getHeight(null)/3;
 		System.out.println(card_width);
 		System.out.println(card_height);
-		Timer timer2 = new Timer(100, new ActionListener() {
+		Timer timer2 = new Timer(20, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				x_velocity += 5;
+				x_velocity += 1;
 				if (x_velocity > x_padding + card_width) x_velocity = 0;
 				repaint();
 			}

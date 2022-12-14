@@ -1,11 +1,381 @@
-[0] Player plays. rank: 5 suit: clubs
-[1] Computer1 played spades 5. 
-[2] Computer2 played spades 9. 
-[3] Computer3 played spades 4. 
-[4] Player plays. rank: 1 suit: spades
-[5] Computer1 played diamonds 1. 
-[6] Computer2 takes 6. 
-[7] Computer3 played diamonds 13. 
-[8] Computer3 played clubs 13. 
-[9] Computer3 played spades 13. 
-[10] Computer3 played spades 10. 
+[0] Player plays. rank: 11 suit: spades
+[1] Computer2 played hearts 11. 
+[2] Player plays. rank: 2 suit: hearts
+[3] Computer1 played diamonds 2. 
+[4] Computer2 takes 4. 
+[5] Computer3 played diamonds 3. 
+[6] Player plays. rank: 7 suit: diamonds
+[7] Computer1 played diamonds 10. 
+[8] Computer2 played diamonds 11. 
+[9] Player plays. rank: 4 suit: diamonds
+[10] Computer1 played diamonds 4. 
+[11] Computer2 played clubs 4. 
+[12] Computer3 played clubs 7. 
+[13] Player plays. rank: 7 suit: spades
+[14] Computer1 played spades 7. 
+[15] Computer2 played spades 12. 
+[16] Computer1 played spades 12. 
+[17] Player plays. rank: 12 suit: hearts
+[18] Computer1 played hearts 3. 
+[19] Computer2 played hearts 8. 
+[20] Computer3 played hearts 8. 
+[21] Player takes.
+[22] Computer1 played hearts 13. 
+[23] Computer1 played hearts 5. 
+[24] Computer2 played hearts 9. 
+[25] Computer3 played spades 9. 
+[26] Player plays. rank: 9 suit: clubs
+[27] Computer1 played clubs 13. 
+[28] Computer1 played clubs 2. 
+[29] Computer2 takes 2. 
+[30] Computer3 played clubs 12. 
+[31] Computer2 played diamonds 12. 
+[32] Computer3 played diamonds 1. 
+[33] Player takes.
+[34] Computer1 played clubs 1. 
+[35] Computer2 played hearts 1. 
+[36] Computer3 played spades 1. 
+[37] Player takes.
+[38] Computer1 played spades 1. 
+[39] Computer2 played spades 10. 
+[40] Computer3 played spades 6. 
+[41] Player plays. rank: 5 suit: spades
+[42] Computer1 played spades 5. 
+[43] Computer2 played spades 4. 
+[44] Computer3 played spades 4. 
+[45] Player plays. rank: 2 suit: spades
+[46] Computer1 takes 2. 
+[47] Computer2 played spades 3. 
+[48] Computer3 played spades 3. 
+[49] Player plays. rank: 13 suit: spades
+[50] Player plays. rank: 13 suit: diamonds
+[51] Player plays. rank: 0 suit: colorjoker
+[52] Computer1 takes 5. 
+[53] Computer2 played diamonds 9. 
+[54] Computer3 played diamonds 9. 
+[55] Player plays. rank: 8 suit: diamonds
+[56] Computer1 played diamonds 3. 
+[57] Computer2 played diamonds 6. 
+[58] Computer3 played diamonds 6. 
+[59] Player plays. rank: 6 suit: hearts
+[60] Computer1 played hearts 5. 
+[61] Computer2 played hearts 5. 
+[62] Computer3 played hearts 1. 
+[63] Player takes.
+[64] Computer1 played hearts 12. 
+[65] Player plays. rank: 4 suit: hearts
+[66] Computer3 played hearts 4. 
+[67] Computer2 played diamonds 4. 
+[68] Computer1 played diamonds 11. 
+[69] Computer3 played diamonds 1. 
+[70] Computer2 takes 3. 
+[71] Computer1 played diamonds 1. 
+[72] Player plays. rank: 5 suit: diamonds
+[73] Computer3 played clubs 5. 
+[74] Computer2 played clubs 12. 
+[75] Computer3 played clubs 1. 
+[76] Player takes.
+[77] Computer1 played clubs 6. 
+[78] Computer2 played spades 6. 
+[79] Computer3 played spades 1. 
+[80] Player plays. rank: 0 suit: blackjoker
+[81] Computer1 takes 8. 
+[82] Computer2 played hearts 8. 
+[83] Computer3 played hearts 3. 
+[84] Player plays. rank: 10 suit: hearts
+[85] Computer1 played clubs 10. 
+[86] Computer2 played diamonds 10. 
+[87] Computer3 played diamonds 8. 
+[88] Player plays. rank: 2 suit: diamonds
+[89] Computer1 played hearts 2. 
+[90] Computer2 takes 4. 
+[91] Computer3 played hearts 2. 
+[92] Player plays. rank: 9 suit: hearts
+[93] Computer1 played diamonds 9. 
+[94] Computer2 played diamonds 3. 
+[95] Computer3 played diamonds 3. 
+[96] Player plays. rank: 3 suit: clubs
+[97] Computer1 played clubs 4. 
+[98] Computer2 played clubs 4. 
+[99] Computer3 played clubs 6. 
+[100] Player plays. rank: 8 suit: clubs
+[101] Computer1 played clubs 11. 
+[102] Computer3 played clubs 11. 
+[103] Player plays. rank: 13 suit: clubs
+[104] Player takes.
+[105] Computer1 played hearts 13. 
+[106] Computer1 played diamonds 13. 
+[107] Computer1 played diamonds 12. 
+[108] Player plays. rank: 12 suit: clubs
+[109] Computer1 played clubs 9. 
+[110] Computer2 played clubs 9. 
+[111] Computer3 played spades 9. 
+[112] Player plays. rank: 8 suit: spades
+[113] Computer1 played spades 7. 
+[114] Computer2 played spades 3. 
+[115] Computer3 played spades 2. 
+[116] Player takes.
+[117] Computer1 played spades 4. 
+[118] Computer2 played spades 12. 
+[119] Computer1 played spades 10. 
+[120] Player plays. rank: 1 suit: spades
+[121] Computer3 takes 3. 
+[122] Computer2 played spades 13. 
+[123] Computer2 played spades 5. 
+[124] Computer1 played spades 5. 
+[125] Player plays. rank: 0 suit: colorjoker
+[126] Computer3 takes 5. 
+[127] Computer2 played diamonds 11. 
+[128] Player plays. rank: 11 suit: hearts
+[129] Player plays. rank: 11 suit: spades
+[130] Player takes.
+[131] Computer3 played spades 6. 
+[132] Computer2 played diamonds 6. 
+[133] Computer1 played diamonds 7. 
+[134] Player plays. rank: 7 suit: hearts
+[135] Computer3 played hearts 1. 
+[136] Computer2 takes 3. 
+[137] Computer1 played hearts 4. 
+[138] Player takes.
+[139] Computer3 played hearts 6. 
+[140] Computer2 played hearts 5. 
+[141] Computer1 played hearts 5. 
+[142] Player takes.
+[143] Computer3 played diamonds 5. 
+[144] Computer2 played diamonds 8. 
+[145] Computer1 played diamonds 8. 
+[146] Player plays. rank: 10 suit: diamonds
+[147] Computer3 played diamonds 4. 
+[148] Computer2 played diamonds 4. 
+[149] Computer1 played diamonds 4. 
+[150] Player plays. rank: 9 suit: diamonds
+[151] Computer3 played diamonds 1. 
+[152] Computer2 takes 3. 
+[153] Computer1 played diamonds 1. 
+[154] Player takes.
+[155] Computer3 played clubs 1. 
+[156] Computer2 played blackjoker 0. 
+[157] Computer1 takes 8. 
+[158] Player plays. rank: 11 suit: clubs
+[159] Player plays. rank: 9 suit: clubs
+[160] Computer3 played clubs 5. 
+[161] Computer2 played clubs 3. 
+[162] Computer1 played clubs 10. 
+[163] Player takes.
+[164] Computer3 played clubs 10. 
+[165] Computer2 played spades 10. 
+[166] Computer1 played hearts 10. 
+[167] Player takes.
+[168] Computer3 played hearts 12. 
+[169] Player plays. rank: 12 suit: diamonds
+[170] Computer3 played diamonds 12. 
+[171] Computer2 played diamonds 12. 
+[172] Computer1 played spades 12. 
+[173] Computer2 played spades 4. 
+[174] Computer3 played spades 4. 
+[175] Player plays. rank: 3 suit: spades
+[176] Computer1 played diamonds 3. 
+[177] Computer2 played hearts 3. 
+[178] Computer3 played hearts 2. 
+[179] Player takes.
+[180] Computer1 played hearts 8. 
+[181] Computer2 played spades 8. 
+[182] Computer3 played spades 1. 
+[183] Player takes.
+[184] Computer1 played spades 13. 
+[185] Computer1 played spades 5. 
+[186] Computer2 played spades 2. 
+[187] Computer3 takes 2. 
+[188] Player plays. rank: 7 suit: spades
+[189] Computer1 played clubs 7. 
+[190] Computer2 played clubs 7. 
+[191] Computer3 played clubs 13. 
+[192] Computer3 played clubs 6. 
+[193] Player plays. rank: 12 suit: clubs
+[194] Computer3 played clubs 12. 
+[195] Computer2 played clubs 12. 
+[196] Computer1 played clubs 2. 
+[197] Player takes.
+[198] Computer3 played clubs 2. 
+[199] Computer2 played clubs 2. 
+[200] Computer1 played diamonds 2. 
+[201] Player takes.
+[202] Computer3 played diamonds 9. 
+[203] Computer2 played diamonds 6. 
+[204] Computer1 played diamonds 13. 
+[205] Computer1 played hearts 13. 
+[206] Computer1 played hearts 13. 
+[207] Player plays. rank: 9 suit: hearts
+[208] Computer3 played hearts 8. 
+[209] Computer2 played hearts 4. 
+[210] Computer1 played clubs 4. 
+[211] Player plays. rank: 3 suit: clubs
+[212] Computer3 played clubs 3. 
+[213] Computer2 played clubs 3. 
+[214] Computer1 played clubs 8. 
+[215] Player plays. rank: 8 suit: spades
+[216] Computer3 played spades 4. 
+[217] Computer2 played spades 9. 
+[218] Computer1 played spades 11. 
+[219] Computer3 played spades 12. 
+[220] Player takes.
+[221] Computer1 played spades 12. 
+[222] Computer2 played spades 12. 
+[223] Computer3 played spades 12. 
+[224] Player takes.
+[225] Computer1 played colorjoker 0. 
+[226] Computer2 takes 5. 
+[227] Computer3 played diamonds 3. 
+[228] Player plays. rank: 1 suit: diamonds
+[229] Computer1 takes 3. 
+[230] Computer2 played diamonds 5. 
+[231] Computer3 played diamonds 4. 
+[232] Player plays. rank: 7 suit: diamonds
+[233] Computer1 played blackjoker 0. 
+[234] Computer2 takes 5. 
+[235] Computer3 played hearts 1. 
+[236] Player takes.
+[237] Computer1 played clubs 1. 
+[238] Computer2 takes 3. 
+[239] Computer3 played clubs 7. 
+[240] Player plays. rank: 12 suit: clubs
+[241] Computer3 played clubs 12. 
+[242] Computer2 played clubs 6. 
+[243] Computer1 played clubs 6. 
+[244] Player plays. rank: 11 suit: clubs
+[245] Player takes.
+[246] Computer3 played clubs 11. 
+[247] Computer2 played clubs 10. 
+[248] Computer1 played hearts 10. 
+[249] Player plays. rank: 10 suit: diamonds
+[250] Computer3 played diamonds 8. 
+[251] Computer2 played diamonds 11. 
+[252] Player plays. rank: 7 suit: diamonds
+[253] Computer3 played diamonds 13. 
+[254] Computer3 played colorjoker 0. 
+[255] Computer2 dies. ---> attack: true
+[256] Computer1 played diamonds 1. 
+[257] Player takes.
+[258] Computer3 played diamonds 1. 
+[259] Computer1 played diamonds 1. 
+[260] Player plays. rank: 2 suit: diamonds
+[261] Computer3 played clubs 2. 
+[262] Computer1 takes 4. 
+[263] Player plays. rank: 8 suit: clubs
+[264] Computer3 played clubs 8. 
+[265] Computer1 played clubs 4. 
+[266] Player takes.
+[267] Computer3 played hearts 4. 
+[268] Computer1 played hearts 3. 
+[269] Player plays. rank: 8 suit: hearts
+[270] Computer3 played hearts 8. 
+[271] Computer1 played hearts 8. 
+[272] Player plays. rank: 7 suit: hearts
+[273] Computer3 played hearts 7. 
+[274] Computer1 played hearts 7. 
+[275] Player plays. rank: 6 suit: hearts
+[276] Computer3 played hearts 6. 
+[277] Computer1 played hearts 6. 
+[278] Player plays. rank: 5 suit: hearts
+[279] Computer3 played hearts 5. 
+[280] Computer1 played hearts 5. 
+[281] Player plays. rank: 13 suit: hearts
+[282] Player takes.
+[283] Computer3 played spades 13. 
+[284] Computer3 played spades 12. 
+[285] Player plays. rank: 7 suit: spades
+[286] Computer1 played spades 1. 
+[287] Computer3 takes 3. 
+[288] Player plays. rank: 2 suit: spades
+[289] Computer1 takes 2. 
+[290] Computer3 played spades 9. 
+[291] Player takes.
+[292] Computer1 played diamonds 9. 
+[293] Computer3 played diamonds 3. 
+[294] Player takes.
+[295] Computer1 played diamonds 4. 
+[296] Computer3 played hearts 4. 
+[297] Player plays. rank: 6 suit: hearts
+[298] Computer1 played hearts 7. 
+[299] Computer3 played hearts 7. 
+[300] Player takes.
+[301] Computer1 played hearts 7. 
+[302] Computer3 played blackjoker 0. 
+[303] Player takes.
+[304] Computer1 played hearts 1. 
+[305] Computer3 takes 3. 
+[306] Player takes.
+[307] Computer1 played hearts 1. 
+[308] Computer3 played hearts 1. 
+[309] Player plays. rank: 0 suit: colorjoker
+[310] Computer1 takes 5. 
+[311] Computer3 played diamonds 6. 
+[312] Player plays. rank: 1 suit: diamonds
+[313] Computer1 played blackjoker 0. 
+[314] Computer3 takes 8. 
+[315] Player plays. rank: 2 suit: clubs
+[316] Computer1 takes 2. 
+[317] Computer3 played clubs 10. 
+[318] Player plays. rank: 8 suit: clubs
+[319] Computer1 played hearts 8. 
+[320] Computer3 played hearts 10. 
+[321] Player plays. rank: 10 suit: diamonds
+[322] Computer1 played diamonds 13. 
+[323] Computer1 played diamonds 11. 
+[324] Player plays. rank: 7 suit: diamonds
+[325] Computer1 played diamonds 3. 
+[326] Computer3 played diamonds 2. 
+[327] Player plays. rank: 1 suit: clubs
+[328] Computer1 played spades 1. 
+[329] Computer3 played hearts 1. 
+[330] Player takes.
+[331] Computer1 played hearts 5. 
+[332] Computer3 played hearts 6. 
+[333] Player plays. rank: 0 suit: colorjoker
+[334] Computer1 takes 5. 
+[335] Computer3 played spades 12. 
+[336] Computer1 played spades 8. 
+[337] Player plays. rank: 8 suit: hearts
+[338] Computer3 played hearts 4. 
+[339] Computer1 played diamonds 4. 
+[340] Player plays. rank: 0 suit: blackjoker
+[341] Computer3 takes 5. 
+[342] Computer1 played clubs 12. 
+[343] Computer3 played clubs 10. 
+[344] Player plays. rank: 8 suit: clubs
+[345] Computer1 played clubs 1. 
+[346] Computer3 takes 3. 
+[347] Player plays. rank: 6 suit: clubs
+[348] Computer1 played clubs 13. 
+[349] Computer1 played diamonds 13. 
+[350] Computer1 played diamonds 3. 
+[351] Computer3 played diamonds 11. 
+[352] Computer1 played spades 11. 
+[353] Player plays. rank: 7 suit: spades
+[354] Computer1 played spades 1. 
+[355] Computer3 takes 3. 
+[356] Player plays. rank: 9 suit: spades
+[357] Computer1 played spades 4. 
+[358] Computer3 played spades 2. 
+[359] Player plays. rank: 2 suit: diamonds
+[360] Computer1 played clubs 2. 
+[361] Computer3 dies. ---> attack: true
+[362] Computer1 played clubs 2. 
+[363] Player takes.
+[364] Computer1 played clubs 2. 
+[365] Player plays. rank: 0 suit: colorjoker
+[366] Computer1 takes 5. 
+[367] Player plays. rank: 10 suit: hearts
+[368] Computer1 played hearts 5. 
+[369] Player takes.
+[370] Computer1 played hearts 3. 
+[371] Player takes.
+[372] Computer1 played blackjoker 0. 
+[373] Player takes.
+[374] Computer1 played spades 9. 
+[375] Player plays. rank: 1 suit: spades
+[376] Computer1 takes 3. 
+[377] Player plays. rank: 1 suit: clubs
+[378] Computer1 takes 3. 
+[379] Player plays. rank: 1 suit: diamonds
+[380] Computer1 played colorjoker 0. 

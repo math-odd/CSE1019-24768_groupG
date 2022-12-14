@@ -6,6 +6,8 @@ One Card Game 프로젝트는 원카드게임을 자바를 사용해 GUI로 구�
 
 ![Screenshot of gameplay](game_screenshot.png)
 
+![short gif of gameplay](gameplay2.gif)
+
  
 
 ## Gameplay 
