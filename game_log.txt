@@ -1,0 +1,11 @@
+[0] Player plays. rank: 5 suit: clubs
+[1] Computer1 played spades 5. 
+[2] Computer2 played spades 9. 
+[3] Computer3 played spades 4. 
+[4] Player plays. rank: 1 suit: spades
+[5] Computer1 played diamonds 1. 
+[6] Computer2 takes 6. 
+[7] Computer3 played diamonds 13. 
+[8] Computer3 played clubs 13. 
+[9] Computer3 played spades 13. 
+[10] Computer3 played spades 10. 
